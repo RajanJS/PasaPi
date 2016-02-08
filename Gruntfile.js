@@ -462,8 +462,8 @@ module.exports = function (grunt) {
     'clean',
     'concurrent:test',
     'autoprefixer',
-    'karma:unit:start',
-    'watch:karma'
+    'karma:unit:start'
+    //,'watch:karma'
   ]);
 
   grunt.registerTask('serve', function (target) {
@@ -471,15 +471,21 @@ module.exports = function (grunt) {
       return grunt.task.run(['compress', 'ionic:serve']);
     }
 
-    grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
+    grunt.config('concurrent.ionic.tasks', ['ionic:serve'
+      //, 'watch'
+      ]);
     grunt.task.run(['wiredep', 'init', 'concurrent:ionic']);
   });
   grunt.registerTask('emulate', function() {
-    grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(), 'watch']);
+    grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join()
+      //, 'watch'
+      ]);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
   grunt.registerTask('run', function() {
-    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(), 'watch']);
+    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join()
+      //, 'watch'
+      ]);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
   grunt.registerTask('build', function() {
@@ -488,7 +494,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('init', [
     'clean',
-    'ngconstant:development',
     'wiredep',
     'concurrent:server',
     'autoprefixer',
@@ -499,7 +504,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('compress', [
     'clean',
-    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
