@@ -295,28 +295,28 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/<%= yeoman.styles %>/main.css': [
-    //         '.temp/<%= yeoman.styles %>/**/*.css',
-    //         '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js': [
-    //         '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/<%= yeoman.styles %>/main.css': [
+            '.temp/<%= yeoman.styles %>/**/*.css',
+            '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js': [
+            '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     // Test settings
     // These will override any config options in karma.conf.js if you create it.
@@ -468,7 +468,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', function (target) {
     if (target === 'compress') {
-      return grunt.task.run(['compress', 'ionic:serve']);
+      return grunt.task.run(['compress', 'ionic:serve --address localhost']);
     }
 
     grunt.config('concurrent.ionic.tasks', ['ionic:serve'
