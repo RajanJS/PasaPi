@@ -1,12 +1,18 @@
-'use strict' ;
-// Ionic Starter App
+'use strict';
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('pasapi', ['ionic'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('welcomeTour', {
+        url: '/welcomeTour',
+        templateUrl: 'appComponents/welcomeTour/welcomeTour.html',
+        controller: 'welcomeTourCtrl'
+      });
+      
+    $urlRouterProvider.otherwise('/');
+  })
 
-.run(function($ionicPlatform) {
+  .run(function($ionicPlatform,$location) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -22,4 +28,10 @@ angular.module('pasapi', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-});
+
+    var firstVisit = localStorage.getItem('firstVisit');
+      if (!firstVisit) {
+          $location.url('/welcomeTour');
+      }
+  })
+  ;
