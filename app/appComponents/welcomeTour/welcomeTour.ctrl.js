@@ -10,9 +10,9 @@ angular.module('pasapi').controller('welcomeTourCtrl', function ($scope, $locati
       title: 'Login',
       inputPlaceholder: 'Enter login code',
       okText: 'Login'
-    }).then(function () {
+    }).then(function (code) {
       // Login with code
-      localStorage.setItem('firstVisit', '1');
+      localStorage.setItem('firstVisit', code);
       $location.url('/');
     });
   };

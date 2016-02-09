@@ -1,37 +1,47 @@
-'use strict';
 
-angular.module('pasapi', ['ionic'])
-  .config(function ($stateProvider, $urlRouterProvider) {
+(function(){
+  'use strict';
+  angular.module('pasapi', ['ionic'])
+    .config(configBlock)
+    .run(runBlock)
+    .controller('NavbarCtrl', function ($scope, $ionicSideMenuDelegate) {
+
+      $scope.openMenu = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+      };
+    });
+
+  function configBlock($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('welcomeTour', {
         url: '/welcomeTour',
         templateUrl: 'appComponents/welcomeTour/welcomeTour.html',
         controller: 'welcomeTourCtrl'
+      })
+      .state('home', {
+        url: '/',
+        templateUrl: 'appComponents/homePage/home.html'
       });
-      
+
     $urlRouterProvider.otherwise('/');
-  })
+  }
 
-  .run(function($ionicPlatform,$location) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+  function runBlock($ionicPlatform,$location) {
+    $ionicPlatform.ready(function() {
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.disableScroll(true);
+      }
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
 
     var firstVisit = localStorage.getItem('firstVisit');
-      if (!firstVisit) {
-          $location.url('/welcomeTour');
-      }
-  })
-  ;
+    if (!firstVisit) {
+      $location.url('/welcomeTour');
+    }
+
+  }})();
+
