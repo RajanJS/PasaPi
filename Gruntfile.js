@@ -21,41 +21,13 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: 'app',
-      scripts: 'scripts',
+      appComponents: 'appComponents',
       styles: 'styles',
       images: 'images',
       test: 'test',
       dist: 'www'
     },
 
-    // Environment Variables for Angular App
-    // This creates an Angular Module that can be injected via ENV
-    // Add any desired constants to the ENV objects below.
-    // https://github.com/diegonetto/generator-ionic/blob/master/docs/FAQ.md#how-do-i-add-constants
-    ngconstant: {
-      options: {
-        space: '  ',
-        wrap: '"use strict";\n\n {%= __ngModule %}',
-        name: 'config',
-        dest: '<%= yeoman.app %>/<%= yeoman.scripts %>/configuration.js'
-      },
-      development: {
-        constants: {
-          ENV: {
-            name: 'development',
-            apiEndpoint: 'http://dev.yoursite.com:10000/'
-          }
-        }
-      },
-      production: {
-        constants: {
-          ENV: {
-            name: 'production',
-            apiEndpoint: 'http://api.yoursite.com/'
-          }
-        }
-      }
-    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -68,16 +40,12 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:app']
       },
       js: {
-        files: ['<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'],
-        tasks: ['newer:copy:app', 'newer:jshint:all']
+        files: ['<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js','<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.*.js'],
+        tasks: ['newer:copy:app', 'newer:jshint:all','jshint:all']
       },
       styles: {
         files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer', 'newer:copy:tmp']
-      },
-      gruntfile: {
-        files: ['Gruntfile.js'],
-        tasks: ['ngconstant:development', 'newer:copy:app']
       }
     },
 
@@ -110,7 +78,8 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'
+        '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js',
+        '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.*.js'
       ],
       test: {
         options: {
@@ -157,7 +126,7 @@ module.exports = function (grunt) {
       }
     },
 
-    
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -189,7 +158,7 @@ module.exports = function (grunt) {
     },
 
     // The following *-min tasks produce minified files in the dist folder
-    cssmin: {
+    cssnano: {
       options: {
         //root: '<%= yeoman.app %>',
         noRebase: true
@@ -241,7 +210,7 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/bower_components/ionic/release/fonts/',
+        cwd: 'app/bowerComponents/ionic/release/fonts/',
         dest: '<%= yeoman.app %>/fonts/',
         src: '*'
       },
@@ -308,8 +277,8 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js': [
-            '<%= yeoman.dist %>/<%= yeoman.scripts %>/scripts.js'
+          '<%= yeoman.dist %>/<%= yeoman.appComponents %>/scripts.js': [
+            '<%= yeoman.dist %>/<%= yeoman.appComponents %>/scripts.js'
           ]
         }
       }
@@ -325,14 +294,14 @@ module.exports = function (grunt) {
         basePath: '',
         frameworks: ['mocha', 'chai'],
         files: [
-          '<%= yeoman.app %>/bower_components/angular/angular.js',
-          '<%= yeoman.app %>/bower_components/angular-mocks/angular-mocks.js',
-          '<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
-          '<%= yeoman.app %>/bower_components/angular-sanitize/angular-sanitize.js',
-          '<%= yeoman.app %>/bower_components/angular-ui-router/release/angular-ui-router.js',
-          '<%= yeoman.app %>/bower_components/ionic/release/js/ionic.js',
-          '<%= yeoman.app %>/bower_components/ionic/release/js/ionic-angular.js',
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js',
+          '<%= yeoman.app %>/bowerComponents/angular/angular.js',
+          '<%= yeoman.app %>/bowerComponents/angular-mocks/angular-mocks.js',
+          '<%= yeoman.app %>/bowerComponents/angular-animate/angular-animate.js',
+          '<%= yeoman.app %>/bowerComponents/angular-sanitize/angular-sanitize.js',
+          '<%= yeoman.app %>/bowerComponents/angular-ui-router/release/angular-ui-router.js',
+          '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic.js',
+          '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic-angular.js',
+          '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js',
           '<%= yeoman.test %>/mock/**/*.js',
           '<%= yeoman.test %>/spec/**/*.js'
         ],
@@ -342,7 +311,7 @@ module.exports = function (grunt) {
         singleRun: false,
         preprocessors: {
           // Update this if you change the yeoman config path
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js': ['coverage']
+          '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js': ['coverage']
         },
         coverageReporter: {
           reporters: [
@@ -369,9 +338,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.temp/concat/<%= yeoman.scripts %>',
+          cwd: '.temp/concat/<%= yeoman.appComponents %>',
           src: '*.js',
-          dest: '.temp/concat/<%= yeoman.scripts %>'
+          dest: '.temp/concat/<%= yeoman.appComponents %>'
         }]
       }
     }
@@ -438,7 +407,7 @@ module.exports = function (grunt) {
   // we don't have to run the karma test server as part of `grunt serve`
   grunt.registerTask('watch:karma', function () {
     var karma = {
-      files: ['<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js', '<%= yeoman.test %>/spec/**/*.js'],
+      files: ['<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js', '<%= yeoman.test %>/spec/**/*.js'],
       tasks: ['newer:jshint:test', 'karma:unit:run']
     };
     grunt.config.set('watch', karma);
@@ -468,26 +437,22 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', function (target) {
     if (target === 'compress') {
-      return grunt.task.run(['compress', 'ionic:serve --address localhost']);
+      return grunt.task.run(['compress', 'ionic:serve']);
     }
 
-    grunt.config('concurrent.ionic.tasks', ['ionic:serve'
-      //, 'watch'
-      ]);
+    grunt.config('concurrent.ionic.tasks', ['ionic:serve','watch']);
     grunt.task.run(['wiredep', 'init', 'concurrent:ionic']);
   });
   grunt.registerTask('emulate', function() {
-    grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join()
-      //, 'watch'
-      ]);
+    grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(),'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
+  
   grunt.registerTask('run', function() {
-    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join()
-      //, 'watch'
-      ]);
+    grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(),'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
+
   grunt.registerTask('build', function() {
     return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
   });
@@ -517,7 +482,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', 
+  grunt.registerTask('coverage',
     ['karma:continuous',
     'connect:coverage:keepalive'
   ]);
