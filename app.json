@@ -2,6 +2,7 @@
   "name": "PasaPi",
   "description": "Friends Info Management App",
   "scripts": {
+    "postinstall": "grunt serve"
   },
   "env": {
   },

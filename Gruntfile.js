@@ -447,7 +447,7 @@ module.exports = function (grunt) {
     grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(),'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
-  
+
   grunt.registerTask('run', function() {
     grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(),'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
@@ -493,4 +493,6 @@ module.exports = function (grunt) {
     'karma:continuous',
     'compress'
   ]);
+
+
 };

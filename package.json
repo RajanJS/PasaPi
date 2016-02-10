@@ -55,7 +55,8 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "grunt serve"
+    "postinstall": "grunt serve",
+    "start": "node server.js"
   },
   "cordovaPlugins": [
     "org.apache.cordova.device",
