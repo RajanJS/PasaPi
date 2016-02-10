@@ -1,0 +1,59 @@
+<ion-view title="Add Pasa">
+
+  <ion-nav-buttons side="primary">
+    <!-- Toggle left side menu -->
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content overflow-scroll="true" padding="true" class="has-header has-footer">
+    <div class="button-bar"></div>
+    <form class="list">
+      <label class="item item-input" name="pasaNameInput">
+        <input type="text" placeholder="Full Name">
+      </label>
+      <label class="item item-select" name="pasaGender">
+        <span class="input-label">Gender</span>
+        <select>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </label>
+      <label class="item item-input" name="pasaPhoneInput">
+        <input type="tel" placeholder="Phone Number">
+      </label>
+      <label class="item item-input" name="pasaEmailInput">
+        <input type="email" placeholder="Email Address">
+      </label>
+      <label class="item item-select" name="pasaAddressInput">
+        <span class="input-label">Address</span>
+        <select>
+          <option>Kathmandu</option>
+          <option>Lalitpur</option>
+          <option>Bhaktapur</option>
+          <option>Others</option>
+        </select>
+      </label>
+      <label class="item item-select" name="pasaNationalityInput">
+        <span class="input-label">Nationality</span>
+        <select>
+          <option>Nepali</option>
+          <option>American</option>
+          <option>Australian</option>
+          <option>Indian</option>
+          <option>Canadian</option>
+          <option>Thai</option>
+          <option>Others</option>
+        </select>
+      </label>
+      <label class="item item-select" name="pasContactModeInput">
+        <span class="input-label">Contact Mode</span>
+        <select>
+          <option>Phone</option>
+          <option>Email</option>
+          <option>Address</option>
+        </select>
+      </label>
+      <a ui-sref="tabsController.pasaInfo" class="button button-dark button-block  icon ion-android-person-add">Add</a>
+    </form>
+  </ion-content>
+</ion-view>

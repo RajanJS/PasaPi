@@ -1,8 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
 
+
 .tour {
-  background: url(../images/skyline.jpg) no-repeat center center fixed;
+  background: url(../images/getConnected.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,26 +23,24 @@
   margin-top: 20px;
   text-align: center;
 }
+.tour h3 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #28a54c;
+  margin-top: 20px;
+}
+.tour h2 {
+  font-size: 2.2rem;
+  font-weight: normal;
+  color: #009926;
+}
 
+.tour button {
+  margin-top: 90px;
+}
 
 .star>.item-content {
   background-color: #EEE8D6 !important;
-}
-
-.splash {
-  background: url(../images/bgBlue.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-.tagline {
-  font-size: 1.4rem;
-}
-
-.branding p {
-  margin-top: 10px;
-  font-size: 1rem;
 }
 
 .item-divider {
@@ -49,8 +48,8 @@
 }
 
 .bar-positive, .tabs-positive>.tabs {
-  background-color: #417D9A !important;
-  border-color:  #417D9A;
+  background-color: #28a54c !important;
+  border-color:  #28a54c;
 }
 
 .item-thumbnail-left img {
