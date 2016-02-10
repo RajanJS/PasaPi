@@ -13,7 +13,7 @@ angular.module('pasapi').controller('welcomeTourCtrl', function ($scope, $locati
     }).then(function (code) {
       // Login with code
       localStorage.setItem('firstVisit', code);
-      $location.url('/');
+      $location.url('/tab/home');
     });
   };
 
