@@ -1,4 +1,9 @@
-<ion-view view-title="Calendar">
+<ion-view view-title="Schedule for Meetup">
+
+  <ion-nav-buttons side="primary">
+    <!-- Toggle left side menu -->
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
 
   <div class="bar bar-subheader
   item-input-inset bar-light">
@@ -19,15 +24,15 @@
       </div><!-- day title -->
 
       <ion-list>
-        <ion-item ng-class="{'item-avatar':item.shortname, 'star': item.star}"
+        <ion-item ng-class="{'item-avatar':item.id, 'star': item.star}"
                   class="item-text-wrap item-icon-right"
                   ng-repeat="item in day.schedule | filter: query"
                   href="#">
 
-          <img ng-show="item.shortname" ng-src="images/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo">
+          <img ng-show="item.id" ng-src="images/{{item.id}}.jpg" alt="{{item.friend}} Photo">
           <h2>{{item.time}}</h2>
           <h3>{{item.title}}</h3>
-          <h4>{{ item.artist ? ' with ' + item.artist : ''}}</h4>
+          <h4>{{ item.friend ? ' with ' + item.friend : ''}}</h4>
           <p>{{ item.description }}</p>
 
           <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></button>

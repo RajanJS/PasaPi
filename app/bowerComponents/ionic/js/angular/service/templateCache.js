@@ -37,7 +37,7 @@
  *         views: {
  *           'home-tab': {
  *             prefetchTemplate: false,
- *             templateUrl: "tabs-templates/home.html",
+ *             templateUrl: "tabs-templates/friendsList.html",
  *             controller: 'HomeTabCtrl'
  *           }
  *         }

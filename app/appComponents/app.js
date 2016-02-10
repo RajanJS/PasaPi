@@ -3,74 +3,14 @@
   'use strict';
   angular.module('pasapi', ['ionic'])
     .config(configBlock)
-    .run(runBlock)
-    //.controller('NavbarCtrl', function ($scope, $ionicSideMenuDelegate) {
-    //
-    //  $scope.openMenu = function () {
-    //    $ionicSideMenuDelegate.toggleLeft();
-    //  };
-    //})
-
-  //calender controlller
-    .controller('CalendarController', ['$scope', '$http',
-      function($scope, $http) {
-        $http.get('js/data.json').success(function(data) {
-          $scope.calendar = data.calendar;
-          $scope.onItemDelete = function(dayIndex, item) {
-            $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex].schedule.indexOf(item), 1);
-          };
-
-          $scope.doRefresh =function() {
-            $http.get('js/data.json').success(function(data) {
-              $scope.calendar = data.calendar;
-              $scope.$broadcast('scroll.refreshComplete');
-            });
-          };
-
-          $scope.toggleStar = function(item) {
-            item.star = !item.star;
-          };
-
-        });
-      }])
-
-  //List controller
-    .controller('ListController', ['$scope', '$http', '$state',
-      function($scope, $http, $state) {
-        $http.get('appComponents/data/data.json').success(function(data) {
-          $scope.artists = data.artists;
-          $scope.whichartist = $state.params.aId;
-          $scope.data = { showDelete: false, showReorder: false };
-
-          $scope.onItemDelete = function(item) {
-            $scope.artists.splice($scope.artists.indexOf(item), 1);
-          };
-
-          $scope.doRefresh =function() {
-            $http.get('appComponents/data/data.json').success(function(data) {
-              $scope.artists = data;
-              $scope.$broadcast('scroll.refreshComplete');
-            });
-          };
-
-          $scope.toggleStar = function(item) {
-            item.star = !item.star;
-          };
-
-          $scope.moveItem = function(item, fromIndex, toIndex) {
-            $scope.artists.splice(fromIndex, 1);
-            $scope.artists.splice(toIndex, 0, item);
-          };
-        });
-      }]);
-
+    .run(runBlock);
 
   function configBlock($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('welcomeTour', {
         url: '/welcomeTour',
         templateUrl: 'appComponents/welcomeTour/welcomeTour.html',
-        controller: 'welcomeTourCtrl'
+        controller: 'WelcomeTourCtrl'
       })
 
       .state('tabs', {
@@ -79,47 +19,46 @@
         templateUrl: 'appComponents/homePage/tabs.html'
       })
 
-      .state('tabs.home', {
-        url: '/home',
+      .state('tabs.friendsList', {
+        url: '/friends',
         views: {
           'home-tab' : {
-            templateUrl: 'appComponents/homePage/home.html'
-          }
-        }
-      })
-
-      .state('tabs.list', {
-        url: '/list',
-        views: {
-          'list-tab' : {
-            templateUrl: 'appComponents/homePage/list.html',
-            controller: 'ListController'
+            templateUrl: 'appComponents/homePage/friendsList/friendsList.html',
+            controller: 'FriendsListCrtl'
           }
         }
       })
 
       .state('tabs.detail', {
-        url: '/list/:aId',
+        url: '/friend/:aId',
         views: {
           'list-tab' : {
-            templateUrl: 'appComponents/homePage/detail.html',
-            controller: 'ListController'
+            templateUrl: 'appComponents/homePage/friendsList/friendDetail.html',
+            controller: 'FriendsListCrtl'
           }
         }
       })
 
-      .state('tabs.calendar', {
+      .state('tabs.addFriend', {
+        url: '/addFriend',
+        views: {
+          'list-tab' : {
+            templateUrl: 'appComponents/homePage/addFriend/addFriend.html'
+          }
+        }
+      })
+
+      .state('tabs.calender', {
         url: '/calendar',
         views: {
           'calendar-tab' : {
-            templateUrl: 'appComponents/homePage/calendar.html',
+            templateUrl: 'appComponents/homePage/friendsCalendar/calender.html',
             controller: 'CalendarController'
           }
         }
       });
 
-
-    $urlRouterProvider.otherwise('/tab/home');
+    $urlRouterProvider.otherwise('/tab/friends');
   }
 
   function runBlock($ionicPlatform,$location) {
@@ -135,7 +74,7 @@
     });
 
     var firstVisit = localStorage.getItem('firstVisit');
-    if (!firstVisit) {
+    if (firstVisit !=='pasapi' ) {
       $location.url('/welcomeTour');
     }
 

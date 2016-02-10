@@ -1,0 +1,24 @@
+<ion-view title=" More Info">
+  <ion-nav-buttons side="primary">
+    <!-- Toggle left side menu -->
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+
+    <ion-list class="list-inset">
+      <ion-item class="item-text-wrap"
+                ng-repeat="item in friends | filter: { id: whichartist }">
+        <img ng-src="images/{{item.id}}.jpg"
+             alt="{{ item.fullname }} Photo">
+        <h3>Name : {{ item.fullname }}</h3>
+        <h2>Phone : {{ item.phone }}</h2>
+        <h2>Address :{{ item.address }}</h2>
+        <h2>Email : {{ item.email }}</h2>
+        <h2>Nationality : {{ item.nationality }}</h2>
+        <br/>
+        <p>About : {{ item.about }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
