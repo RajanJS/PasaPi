@@ -1,41 +1,90 @@
-<ion-view title="Add Pasa">
+  <ion-view title="Add Friend">
 
-  <ion-nav-buttons side="primary">
-    <!-- Toggle left side menu -->
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header has-footer">
 
-  <ion-content overflow-scroll="true" padding="true" class="has-header has-footer">
-    <div class="button-bar"></div>
-    <form class="list">
-      <label class="item item-input" name="pasaNameInput">
-        <input type="text" placeholder="Full Name">
+    <form name="friendAddForm" novalidate="" ng-submit="add(friendAddForm)" >
+
+      <div class="list card "></div>
+      <div class="item item-divider">Enter your info:</div>
+      <!--full name-->
+      <label class="item item-input item-floating-label"
+             ng-class="{ 'has-errors' : friendAddForm.fullname.$invalid ,
+              'no-errors' : friendAddForm.fullname.$valid}">
+        <span class="input-label">Full Name</span>
+        <input required type="text" name="fullname" placeholder="Full Name" ng-model="authorization.fullname" ng-minlength="5" ng-maxlength="20" >
       </label>
-      <label class="item item-select" name="pasaGender">
+
+      <div class="error-container" ng-show="friendAddForm.fullname.$error" ng-messages="friendAddForm.fullname.$error">
+        <div ng-messages-include="error-list.html"></div>
+      </div>
+
+      <!--Gender-->
+      <label class="item item-select"
+             ng-class="{ 'has-errors' : friendAddForm.gender.$invalid && friendAddForm.$submitted,
+              'no-errors' : friendAddForm.gender.$valid && friendAddForm.$submitted}">
         <span class="input-label">Gender</span>
-        <select>
+        <select required placeholder="Gender" name="gender" ng-model="authorization.gender">
           <option>Male</option>
           <option>Female</option>
         </select>
       </label>
-      <label class="item item-input" name="pasaPhoneInput">
-        <input type="tel" placeholder="Phone Number">
+
+      <div class="error-container" ng-show="friendAddForm.gender.$error  && friendAddForm.$submitted" ng-messages="friendAddForm.gender.$error">
+        <div ng-messages-include="error-list.html"></div>
+      </div>
+
+      <!-- Phone number-->
+      <label class="item item-input item-floating-label"
+             ng-class="{ 'has-errors' : friendAddForm.phoneNo.$invalid && friendAddForm.$submitted,
+             'no-errors' : friendAddForm.phoneNo.$valid && friendAddForm.$submitted}">
+        <span class="input-label">Phone Number</span>
+        <input required type="tel" name="phoneNo" placeholder="Phone Number"  ng-model="authorization.phoneNo" ng-minlength="10" ng-maxlength="20">
       </label>
-      <label class="item item-input" name="pasaEmailInput">
-        <input type="email" placeholder="Email Address">
+
+      <div class="error-container" ng-show="friendAddForm.phoneNo.$error && friendAddForm.$submitted" ng-messages="friendAddForm.phoneNo.$error">
+        <div ng-messages-include="error-no.html"></div>
+      </div>
+
+      <!-- Email address-->
+      <label class="item item-input item-floating-label"
+             ng-class="{ 'has-errors' : friendAddForm.email.$invalid && friendAddForm.$submitted, 'no-errors' : friendAddForm.email.$valid
+             && friendAddForm.$submitted}">
+        <span class="input-label">Email Address</span>
+        <input  required type="email"  name="email" placeholder="Email Address" ng-model="authorization.email">
       </label>
-      <label class="item item-select" name="pasaAddressInput">
+
+      <div class="error-container" ng-show="friendAddForm.email.$error  && friendAddForm.$submitted" ng-messages="friendAddForm.email.$error">
+        <div ng-messages-include="error-email.html"></div>
+      </div>
+
+      <!-- Address-->
+      <label class="item item-select "
+             ng-class="{ 'has-errors' : friendAddForm.address.$invalid && friendAddForm.$submitted,
+              'no-errors' : friendAddForm.address.$valid && friendAddForm.$submitted}">
         <span class="input-label">Address</span>
-        <select>
+        <select required name="address" ng-model="authorization.address">
           <option>Kathmandu</option>
           <option>Lalitpur</option>
           <option>Bhaktapur</option>
+          <option>Kirtipur</option>
+          <option>Dhudikhel</option>
+          <option>Birgung</option>
           <option>Others</option>
         </select>
       </label>
-      <label class="item item-select" name="pasaNationalityInput">
+
+      <div class="error-container" ng-show="friendAddForm.address.$error  && friendAddForm.$submitted" ng-messages="friendAddForm.address.$error">
+        <div ng-messages-include="error-req.html"></div>
+      </div>
+
+
+
+      <!-- Nationality-->
+      <label class="item item-select "
+             ng-class="{ 'has-errors' : friendAddForm.nationality.$invalid && friendAddForm.$submitted,
+              'no-errors' : friendAddForm.nationality.$valid && friendAddForm.$submitted}">
         <span class="input-label">Nationality</span>
-        <select>
+        <select required name ="nationality" ng-model="authorization.nationality">
           <option>Nepali</option>
           <option>American</option>
           <option>Australian</option>
@@ -45,15 +94,28 @@
           <option>Others</option>
         </select>
       </label>
-      <label class="item item-select" name="pasContactModeInput">
+
+      <div class="error-container" ng-show="friendAddForm.nationality.$error  && friendAddForm.$submitted" ng-messages="friendAddForm.nationality.$error">
+        <div ng-messages-include="error-req.html"></div>
+      </div>
+
+      <!-- Contact Mode-->
+      <label class="item item-select" name="contactModeInput"
+             ng-class="{ 'has-errors' : friendAddForm.contactMode.$invalid && friendAddForm.$submitted,
+             'no-errors' : friendAddForm.contactMode.$valid && friendAddForm.$submitted}">
         <span class="input-label">Contact Mode</span>
-        <select>
+        <select required name="contactMode" ng-model="authorization.contactMode">
           <option>Phone</option>
           <option>Email</option>
           <option>Address</option>
         </select>
       </label>
-      <a ui-sref="tabsController.pasaInfo" class="button button-dark button-block  icon ion-android-person-add">Add</a>
+
+      <div class="error-container" ng-show="friendAddForm.contactMode.$error  && friendAddForm.$submitted" ng-messages="friendAddForm.contactMode.$error">
+        <div ng-messages-include="error-req.html"></div>
+      </div>
+
+      <button class="button button-dark button-block  icon ion-android-person-add" type="submit">  Add</button>
     </form>
   </ion-content>
 </ion-view>

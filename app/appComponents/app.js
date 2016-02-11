@@ -1,7 +1,7 @@
 
 (function(){
   'use strict';
-  angular.module('pasapi', ['ionic'])
+  angular.module('pasapi', ['ionic','ngMessages'])
     .config(configBlock)
     .run(runBlock);
 
@@ -29,10 +29,10 @@
         }
       })
 
-      .state('tabs.detail', {
+      .state('tabs.friendDetail', {
         url: '/friend/:aId',
         views: {
-          'list-tab' : {
+          'home-tab' : {
             templateUrl: 'appComponents/homePage/friendsList/friendDetail.html',
             controller: 'FriendsListCrtl'
           }
@@ -43,7 +43,8 @@
         url: '/addFriend',
         views: {
           'list-tab' : {
-            templateUrl: 'appComponents/homePage/addFriend/addFriend.html'
+            templateUrl: 'appComponents/homePage/addFriend/addFriend.html',
+            controller: 'AddFriendCrtl'
           }
         }
       })
