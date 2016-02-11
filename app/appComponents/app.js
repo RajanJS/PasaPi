@@ -12,6 +12,11 @@
         templateUrl: 'appComponents/welcomeTour/welcomeTour.html',
         controller: 'WelcomeTourCtrl'
       })
+      .state('guideTour', {
+        url: '/guideTour',
+        templateUrl: 'appComponents/guideTour/guideTour.html',
+        controller: 'GuideTourCtrl'
+      })
 
       .state('tabs', {
         url: '/tab',
