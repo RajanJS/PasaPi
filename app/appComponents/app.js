@@ -14,8 +14,7 @@
       })
       .state('guideTour', {
         url: '/guideTour',
-        templateUrl: 'appComponents/guideTour/guideTour.html',
-        controller: 'GuideTourCtrl'
+        templateUrl: 'appComponents/guideTour/guideTour.html'
       })
 
       .state('tabs', {
