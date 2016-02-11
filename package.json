@@ -1,7 +1,7 @@
 {
   "name": "PasaPi",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "express": "^4.13.4",
     "grunt": "0.4.5",
@@ -55,8 +55,8 @@
   },
   "scripts": {
     "test": "grunt test",
-    "postinstall": "grunt serve",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bash ./post_install.sh"
   },
   "cordovaPlugins": [
     "org.apache.cordova.device",
