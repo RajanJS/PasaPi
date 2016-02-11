@@ -20,6 +20,7 @@ I named it as PasaPi (Friends in newari Language) targeting management of Friend
 > 2.  Home View
 >>  * Link of Friends with details view.
 >
+>>>  * We can search the friend in the list using search.
 >>>  * We can star the favorite friend by left slide.
 >>>  * We can delete the friend by left slide.
 >>>  * We can reorder the friend by reorder button on the header left corner. 
@@ -28,6 +29,7 @@ I named it as PasaPi (Friends in newari Language) targeting management of Friend
 >>>  * Validation to check in the fields.
 >
 >>  * View Schedule update
+>>>  * Can search the scheduled meetup in the list.
 >>>  * View the scheduled meetup with friends.
 >>>  * Can star and delete the meetup with left slide.
 >
