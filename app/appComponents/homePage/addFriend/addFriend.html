@@ -1,39 +1,55 @@
-<ion-view title="Add Pasa">
-
+  <ion-view title="Add Friend">
   <ion-nav-buttons side="primary">
     <!-- Toggle left side menu -->
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
 
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer">
-    <div class="button-bar"></div>
-    <form class="list">
-      <label class="item item-input" name="pasaNameInput">
-        <input type="text" placeholder="Full Name">
+    <div class="button-bar center">       Please enter the details below.</div>
+    <br/>
+
+    <form name="friendAddForm" novalidate="" ng-submit="signIn(friendAddForm)" >
+
+      <div class="list" ></div>
+
+      <label class="item item-input item-floating-label"
+             ng-class="{ 'has-errors' : friendAddForm.fullname.$invalid, 'no-errors' : friendAddForm.username.$valid}">
+        <span class="input-label">Full Name</span>
+        <input required type="text" name="fullname" placeholder="Full Name" ng-model="authorization.fullname" ng-minlength="5" ng-maxlength="20" required>
       </label>
-      <label class="item item-select" name="pasaGender">
+
+      <div class="error-container" ng-show="friendAddForm.fullname.$error" ng-messages="friendAddForm.fullname.$error">
+        <div ng-messages-include="error-list.html"></div>
+      </div>
+
+      <label class="item item-select" name="gender">
         <span class="input-label">Gender</span>
         <select>
           <option>Male</option>
           <option>Female</option>
         </select>
       </label>
-      <label class="item item-input" name="pasaPhoneInput">
-        <input type="tel" placeholder="Phone Number">
+      <label class="item item-input item-floating-label" name="phoneInput">
+        <span class="input-label">Phone Number</span>
+        <input required type="tel" placeholder="Phone Number">
       </label>
-      <label class="item item-input" name="pasaEmailInput">
-        <input type="email" placeholder="Email Address">
+      <label class="item item-input item-floating-label" name="emailInput">
+        <span class="input-label">Email Address</span>
+        <input  required type="email" placeholder="Email Address">
       </label>
-      <label class="item item-select" name="pasaAddressInput">
+      <label class="item item-select " name="addressInput">
         <span class="input-label">Address</span>
         <select>
           <option>Kathmandu</option>
           <option>Lalitpur</option>
           <option>Bhaktapur</option>
+          <option>Kirtipur</option>
+          <option>Dhudikhel</option>
+          <option>Birgung</option>
           <option>Others</option>
         </select>
       </label>
-      <label class="item item-select" name="pasaNationalityInput">
+      <label class="item item-select " name="nationalityInput">
         <span class="input-label">Nationality</span>
         <select>
           <option>Nepali</option>
@@ -45,7 +61,7 @@
           <option>Others</option>
         </select>
       </label>
-      <label class="item item-select" name="pasContactModeInput">
+      <label class="item item-select" name="contactModeInput">
         <span class="input-label">Contact Mode</span>
         <select>
           <option>Phone</option>
@@ -53,7 +69,8 @@
           <option>Address</option>
         </select>
       </label>
-      <a ui-sref="tabsController.pasaInfo" class="button button-dark button-block  icon ion-android-person-add">Add</a>
+      <a class="button button-dark button-block  icon ion-android-person-add" type="submit">    Add</a>
     </form>
   </ion-content>
 </ion-view>
+
