@@ -6,8 +6,9 @@ Simple Friends Info management application using IONIC Framework.
 
 ##Details
 
-This is a simple app to implement CRUD (Create Read Update Delete) functionality using IONIC Framework on the top of Phonegap/Cordova. 
-This application is designed for Iphone, Android and Windows Phone but can also be deployed as Blackberry Application. I name it as PasaPi (Friends in newari Language) targeting management of Friend's Info. 
+*This is a simple app to implement CRUD (Create Read Update Delete) functionality using IONIC Framework on the top of Phonegap/Cordova. 
+This application is designed for Iphone, Android and Windows Phone but can also be deployed as Blackberry Application. 
+I named it as PasaPi (Friends in newari Language) targeting management of Friend's Info. 
 
 >##The Basic Application flow is as following:
 >
@@ -18,6 +19,7 @@ This application is designed for Iphone, Android and Windows Phone but can also 
 >
 > 2.  Home View
 >>  * Link of Friends with details view.
+>
 >>>  * We can star the favorite friend by left slide.
 >>>  * We can delete the friend by left slide.
 >>>  * We can reorder the friend by reorder button on the header left corner. 
@@ -28,6 +30,7 @@ This application is designed for Iphone, Android and Windows Phone but can also 
 >>  * View Schedule update
 >>>  * View the scheduled meetup with friends.
 >>>  * Can star and delete the meetup with left slide.
+>
 > 3.  Guide Slide
 >>  * Guidelines with the application feature.
 >
