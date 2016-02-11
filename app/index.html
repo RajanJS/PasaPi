@@ -29,6 +29,8 @@
   <!-- endbower -->
   <!-- endbuild -->
 
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-messages.js"></script>
+
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 
@@ -37,7 +39,7 @@
   <script src="appComponents/welcomeTour/welcomeTour.ctrl.js"></script>
   <script src="appComponents/homePage/friendsList/friendsList.ctrl.js"></script>
   <script src="appComponents/homePage/friendsCalendar/calender.ctrl.js"></script>
-
+  <script src="appComponents/homePage/addFriend/addFriend.ctrl.js"></script>
 
 </head>
 <body ng-app="pasapi">
@@ -64,9 +66,55 @@
       </ion-list>
     </ion-content>
   </ion-side-menu>
-
 </ion-side-menus>
 
+<script  id="error-list.html" type="text/ng-template">
+  <div class="error" ng-message="required">
+    <i class="ion-information-circled"></i>
+    This field is required!
+  </div>
+  <div class="error" ng-message="minlength">
+    <i class="ion-information-circled"></i>
+    Minimum length of this field is 5 characters!
+  </div>
+  <div class="error" ng-message="maxlength">
+    <i class="ion-information-circled"></i>
+    Maximum length of this field is 20 characters!
+  </div>
+</script>
+
+<script  id="error-no.html" type="text/ng-template">
+  <div class="error" ng-message="required">
+    <i class="ion-information-circled"></i>
+    This field is required!
+  </div>
+  <div class="error" ng-message="minlength">
+    <i class="ion-information-circled"></i>
+    Minimum length of this field is 10 characters!
+  </div>
+  <div class="error" ng-message="maxlength">
+    <i class="ion-information-circled"></i>
+    Maximum length of this field is 20 characters!
+  </div>
+</script>
+
+<script  id="error-req.html" type="text/ng-template">
+  <div class="error" ng-message="required">
+    <i class="ion-information-circled"></i>
+    This field is required!
+  </div>
+</script>
+
+<script  id="error-email.html" type="text/ng-template">
+  <div class="error" ng-message="required">
+    <i class="ion-information-circled"></i>
+    This field is required!
+  </div>
+  <div class="error" ng-message="minlength">
+    <i class="ion-information-circled"></i>
+    It should be valid email id !
+  </div>
+</script>
 
 </body>
 </html>
