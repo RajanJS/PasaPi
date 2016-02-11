@@ -11,10 +11,10 @@ This is a simple app to implement CRUD (Create Read Update Delete) functionality
 ## This application is based on Ionic Framework generator 
 ```
 Yeoman generator for creating Ionic hybrid mobile applications using AngularJS and Cordova - lets you quickly set up a project with sensible defaults and best practices.
-
-```
-## Features of generator 
-```
 https://github.com/diegonetto/generator-ionic
-
 ```
+The link to view live delpoy : 
+ ```
+  https://pasapi.herokuapp.com/
+ 
+ ```
