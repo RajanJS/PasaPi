@@ -1,53 +1,58 @@
 # PasaPi - Stay Informed about Friends
 ========================================
 
-App name is based on the Newari Language which means `Friends` ie : PasaPi (Friends in Newari Language) 
-Simple Friends Info management application using IONIC Framework.
+App name **PasaPi** is based on the **Newari Language** which means **Friends**. It's Simple Friends Info management application using *IONIC Framework*.
 
 ##Details
 
-*This is a simple app to implement CRUD (Create Read Update Delete) functionality using IONIC Framework on the top of Phonegap/Cordova. 
-This application is designed for Iphone, Android and Windows Phone but can also be deployed as Blackberry Application. 
-I named it as PasaPi (Friends in newari Language) targeting management of Friend's Info. 
+* This is a simple app to implement CRUD (Create Read Update Delete) functionality using IONIC Framework on the top of Phonegap/Cordova.
+* This application is designed for Iphone, Android and Windows Phone but can also be deployed as Blackberry Application.
 
->##The Basic Application flow is as following:
->
-> 1.  Intro View (Welcome Slide)
->>  * Use of slidebox
->>  * Only show on first use
->>  * Click on button to navigate to home page.
->
-> 2.  Home View
->>  * Link of Friends with details view.
->
->>>  * We can search the friend in the list using search.
->>>  * We can star the favorite friend by left slide.
->>>  * We can delete the friend by left slide.
->>>  * We can reorder the friend by reorder button on the header left corner. 
->
->>  * Add Friends
->>>  * Validation to check in the fields.
->
->>  * View Schedule update
->>>  * Can search the scheduled meetup in the list.
->>>  * View the scheduled meetup with friends.
->>>  * Can star and delete the meetup with left slide.
->
-> 3.  Guide Slide
->>  * Guidelines with the application feature.
->
+###The Basic Application flow is as following:
 
-## This application is based on Ionic Framework generator 
+1.  Intro View (Welcome Slide)
+  * Use of slidebox
+  * Only show on first use
+  * Click on button to navigate to home page.
 
->Yeoman generator for creating Ionic hybrid mobile applications using AngularJS and Cordova.
->lets you quickly set up a project with sensible defaults and best practices..
+2.  Home View
+  * Link of Friends with details view.
+    * We can search the friend in the list using search.
+    * We can star the favorite friend by left slide.
+    * We can delete the friend by left slide.
+    * We can reorder the friend by reorder button on the header left corner. 
+
+  * Add Friends
+    * Validation to check in the fields.
+
+  * View Schedule update
+    * Can search the scheduled meetup in the list.
+    * View the scheduled meetup with friends.
+    * Can star and delete the meetup with left slide.
+
+3.  Guide Slides
+  * Guidelines with the application feature.
+
+###### For live demo : [Pasapi](https://pasapi.herokuapp.com)
+
+###### This application is based on [Ionic Framework generator](https://github.com/diegonetto/generator-ionic) 
+
+* Yeoman generator for creating Ionic hybrid mobile applications using AngularJS and Cordova.
+* lets you quickly set up a project with sensible defaults and best practices..
+
+###### How to run this application :
+* Download this applicaiton as zip.
+* Make sure Node.js , npm and bower is installed.
+* Then run the following commands :
 ```
-https://github.com/diegonetto/generator-ionic
-````
-
-#The link to view live delpoy : 
+- npm install
+- bower install
+- grunt serve
 ```
-  https://pasapi.herokuapp.com/
 
-``` 
-###Author : Rajan Maharjan
+#### Note:
+* The working folder is “app” not “www”.
+* The **grunt serve** will automatically build the www files using all the necessary testing (including JSHint
+* ) and files minification” 
+
+###### Author : [Rajan Maharjan](http://mrajan.com.np/)
