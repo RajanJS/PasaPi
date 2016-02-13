@@ -18,7 +18,7 @@
 
         $scope.doRefresh =function() {
           $http.get('appComponents/data/data.json').success(function(data) {
-            $scope.friends = data;
+            $scope.friends = data.friends;
             $scope.$broadcast('scroll.refreshComplete');
           });
         };
