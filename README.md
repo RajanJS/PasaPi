@@ -1,4 +1,6 @@
-# PasaPi - Stay Informed about Friends
+# PasaPi [![Codeship Status for boennemann/badges](https://www.codeship.io/projects/2975f190-646d-0131-452c-7a6d2bba8338/status?branch=master)](https://codeship.com/projects/132656) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30"> 
+========================================
+###### Stay Informed about Friends  
 ========================================
 
 App name **PasaPi** is based on the **Newari Language** which means **Friends**. It's Simple Friends Info management application using *IONIC Framework*.
@@ -52,7 +54,6 @@ App name **PasaPi** is based on the **Newari Language** which means **Friends**.
 
 #### Note:
 * The working folder is “app” not “www”.
-* The **grunt serve** will automatically build the www files using all the necessary testing (including JSHint
-* ) and files minification” 
+* The **grunt serve** will automatically build the www files using all the necessary testing (including JSHint) and files minification” 
 
 ###### Author : [Rajan Maharjan](http://mrajan.com.np/)
