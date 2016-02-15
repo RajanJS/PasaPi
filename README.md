@@ -1,4 +1,4 @@
-# PasaPi [![Codeship Status for boennemann/badges](https://www.codeship.io/projects/2975f190-646d-0131-452c-7a6d2bba8338/status?branch=master)](https://codeship.com/projects/132656) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30"> 
+# PasaPi [![Codeship Status for boennemann/badges](https://www.codeship.io/projects/2975f190-646d-0131-452c-7a6d2bba8338/status?branch=master)](https://codeship.com/projects/132656) [![Build Status](https://travis-ci.org/RajanJS/PasaPi.svg?branch=master)](https://travis-ci.org/RajanJS/PasaPi) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30"> 
 ========================================
 ###### Stay Informed about Friends  
 ========================================
