@@ -1,10 +1,16 @@
-nvm install 4.0
-nvm install 0.10
-npm -g install npm@latest
+language: node_js
+node_js:
+  - '0.12'
+  - '0.11'
+  - '0.10'
+before_script:
+ - npm -g install npm@latest
 # Install bower globally
-npm install -g bower
-bower install
-npm install
+ - npm install -g bower
+ - bower install
+ - npm install
 # Install grunt-cli for running your tests or other tasks
-npm install -g grunt-cli
-npm test
+ - npm install -g grunt-cli
+
+script:
+- npm test
