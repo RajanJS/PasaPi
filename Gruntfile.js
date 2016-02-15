@@ -301,10 +301,11 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/bowerComponents/angular-ui-router/release/angular-ui-router.js',
           '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic.js',
           '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic-angular.js',
+          '<%= yeoman.app %>/bowerComponents/angular-mocks/angular-mocks.js',
           '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js',
           '<%= yeoman.test %>/unit/**/*.js'
         ],
-        autoWatch: false,
+        autoWatch: true,
         reporters: ['dots', 'coverage'],
         port: 8080,
         singleRun: false,
