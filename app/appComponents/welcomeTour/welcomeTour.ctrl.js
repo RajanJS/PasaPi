@@ -3,7 +3,7 @@
  */
 (function() {
   'use strict';
-  angular.module('pasapi')
+ angular.module('pasapi')
     .controller('WelcomeTourCtrl',welcomeTourCtrl);
 
     function welcomeTourCtrl ($scope, $location, $ionicPopup) {

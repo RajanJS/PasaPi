@@ -18,9 +18,12 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
+  "jasmine" : true,
   "globals": {
     "angular": false,
     "cordova": false,
-    "StatusBar": false
+    "StatusBar": false,
+    "module": false,
+    "inject": false
   }
 }

@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:app']
       },
       js: {
-        files: ['<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js','<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.*.js'],
+        files: ['<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js'],
         tasks: ['newer:copy:app', 'newer:jshint:all','jshint:all']
       },
       styles: {
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
       all: [
         'Gruntfile.js',
         '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js',
-        '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.*.js'
+        '<%= yeoman.test %>/**/*.js'
       ],
       test: {
         options: {
@@ -175,7 +175,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'templates/**/*.html'],
+          src: ['*.html', '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -192,7 +192,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '*.html',
-            'templates/**/*.html',
+            '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.html',
             'fonts/*'
           ]
         }, {
@@ -292,7 +292,7 @@ module.exports = function (grunt) {
     karma: {
       options: {
         basePath: '',
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['jasmine'],
         files: [
           '<%= yeoman.app %>/bowerComponents/angular/angular.js',
           '<%= yeoman.app %>/bowerComponents/angular-mocks/angular-mocks.js',
@@ -301,11 +301,11 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/bowerComponents/angular-ui-router/release/angular-ui-router.js',
           '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic.js',
           '<%= yeoman.app %>/bowerComponents/ionic/release/js/ionic-angular.js',
+          '<%= yeoman.app %>/bowerComponents/angular-mocks/angular-mocks.js',
           '<%= yeoman.app %>/<%= yeoman.appComponents %>/**/*.js',
-          '<%= yeoman.test %>/mock/**/*.js',
-          '<%= yeoman.test %>/spec/**/*.js'
+          '<%= yeoman.test %>/unit/**/*.js'
         ],
-        autoWatch: false,
+        autoWatch: true,
         reporters: ['dots', 'coverage'],
         port: 8080,
         singleRun: false,
